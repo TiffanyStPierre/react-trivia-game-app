@@ -19,7 +19,7 @@ export default function QuizSearch() {
             <form onSubmit={handleSubmit}>
                 <label>Choose a trivia category</label>
                 <select onChange={handleChange}>
-                    <option value="all">All Categories</option>
+                    <option value="">All Categories</option>
                     <option value="27">Animals</option>
                     <option value="26">Celebrities</option>
                     <option value="11">Film</option>

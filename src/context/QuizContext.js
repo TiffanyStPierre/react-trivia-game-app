@@ -5,20 +5,21 @@ const QuizContext = createContext();
 const baseURL = 'https://opentdb.com/api.php?amount=4';
 
 export const QuizProvider = ({children}) => {
-    const [questions, setQuestions] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [items, setItems] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     const getTrivia = async () => {
+        setLoading(true);
         const response = await fetch(`${baseURL}`);
 
         const data = await response.json();
 
-        setQuestions(data);
+        setItems(data);
         setLoading(false);
     }
 
     return <QuizContext.Provider value={{
-        questions,
+        items,
         loading,
         getTrivia
     }}>

@@ -58,6 +58,17 @@ html {
   width: 175px;
 }
 
+/** Spinner Component **/
+
+.spinner {
+  margin: 0 auto;
+  width: 180px;
+}
+
+.spinner-img {
+  width: 100%;
+}
+
 /** Header Component **/
 
 .header,
