@@ -3,18 +3,21 @@ import Landing from './pages/Landing';
 import Quiz from './pages/Quiz';
 import NotFound from './pages/NotFound';
 import Spinner from './components/layout/Spinner';
+import {QuizProvider} from './context/QuizContext';
 
 function App() {
   return (
-    <Router>
-      <div className="app">
+    <QuizProvider>
+      <Router>
+        <div className="app">
           <Routes>
             <Route path='/' element={<Landing />} />
             <Route path='/quiz' element={<Quiz />} />
             <Route path='/*' element={<NotFound />} />
           </Routes>
-      </div>
-    </Router>
+        </div>
+      </Router>
+    </QuizProvider>
   );
 }
 

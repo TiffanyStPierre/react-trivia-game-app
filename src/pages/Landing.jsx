@@ -1,4 +1,3 @@
-import QuizSearch from '../components/quiz/QuizSearch';
 import LandingHeader from '../components/layout/LandingHeader';
 
 export default function Landing() {

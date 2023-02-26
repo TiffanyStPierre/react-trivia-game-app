@@ -1,11 +1,24 @@
 import { Link } from 'react-router-dom';
+import {useState, useContext} from 'react';
+import QuizContext from '../../context/QuizContext';
+
 
 export default function QuizSearch() {
+    const [selection, setSelection] = useState('');
+    const {getTrivia} = useContext(QuizContext);
+
+    const handleChange = (e) => setSelection(e.target.value);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        getTrivia(selection);
+    }
+
     return (
         <>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label>Choose a trivia category</label>
-                <select>
+                <select onChange={handleChange}>
                     <option value="all">All Categories</option>
                     <option value="27">Animals</option>
                     <option value="26">Celebrities</option>
@@ -20,7 +33,7 @@ export default function QuizSearch() {
                     <option value="14">Television</option>
                     <option value="28">Vehicles</option>
                 </select>
-                <button>Get Questions</button>
+                <button type="submit" className="btn-submit">Get Questions</button>
             </form>
             <Link to="/">Reset Game</Link>
         </>
