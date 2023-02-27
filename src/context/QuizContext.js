@@ -10,11 +10,14 @@ export const QuizProvider = ({children}) => {
 
     const getTrivia = async (selection) => {
         setLoading(true);
-        const response = await fetch(`${baseURL}&${params}&type=multiple`);
 
         const params = new URLSearchParams({
             category: selection,
         })
+
+        const response = await fetch(`${baseURL}&${params}&type=multiple`);
+
+        
 
         const data = await response.json();
 

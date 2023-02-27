@@ -9,8 +9,8 @@ export default function QuizCards() {
     if (!loading) {
         return (
             <div className="card-section">
-                {items.map((item) => (
-                    <QuizItem key={items.indexOf(item)} item={item} />
+                {items?.results?.map((item, index) => (
+                    <QuizItem key={index} item={item} />
                 ))}
             </div>
         )
