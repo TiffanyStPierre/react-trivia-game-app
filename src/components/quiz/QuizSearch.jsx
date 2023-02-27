@@ -4,10 +4,11 @@ import QuizContext from '../../context/QuizContext';
 
 
 export default function QuizSearch() {
-    const [selection, setSelection] = useState('');
-    const {getTrivia} = useContext(QuizContext);
+    const [selection, setSelection] = useState('27');
+    const {getTrivia, items} = useContext(QuizContext);
 
     const handleChange = (e) => setSelection(e.target.value);
+    console.log({selection})
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -16,10 +17,9 @@ export default function QuizSearch() {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} value={selection}>
                 <label>Choose a trivia category</label>
                 <select onChange={handleChange}>
-                    <option value="">All Categories</option>
                     <option value="27">Animals</option>
                     <option value="26">Celebrities</option>
                     <option value="11">Film</option>

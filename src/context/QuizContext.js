@@ -8,12 +8,17 @@ export const QuizProvider = ({children}) => {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    const getTrivia = async () => {
+    const getTrivia = async (selection) => {
         setLoading(true);
-        const response = await fetch(`${baseURL}`);
+        const response = await fetch(`${baseURL}&${params}&type=multiple`);
+
+        const params = new URLSearchParams({
+            category: selection,
+        })
 
         const data = await response.json();
 
+        console.log(data);
         setItems(data);
         setLoading(false);
     }
