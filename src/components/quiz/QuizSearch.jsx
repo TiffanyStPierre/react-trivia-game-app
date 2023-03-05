@@ -8,7 +8,6 @@ export default function QuizSearch() {
     const {getTrivia, items} = useContext(QuizContext);
 
     const handleChange = (e) => setSelection(e.target.value);
-    console.log({selection})
 
     const handleSubmit = (e) => {
         e.preventDefault();

@@ -17,11 +17,8 @@ export const QuizProvider = ({children}) => {
 
         const response = await fetch(`${baseURL}&${params}&type=multiple`);
 
-        
-
         const data = await response.json();
 
-        console.log(data);
         setItems(data);
         setLoading(false);
     }
