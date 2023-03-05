@@ -5,34 +5,31 @@ import QuizContext from '../../context/QuizContext';
 export default function QuizCards() {
     const { items, loading } = useContext(QuizContext);
 
-    const createAnswerArray = (item) => {
-        const answerArray = item.incorrect_answers;
 
-
-        answerArray.push(item.correct_answer);
-        answerArray.sort();
-        console.log(answerArray);
-    }
 
     if (!loading) {
         return (
             <div className="card-section">
                 {items?.results?.map((item) => {
 
-                    createAnswerArray(item);
+                    const answerArray = item.incorrect_answers;
+                    answerArray.push(item.correct_answer);
+                    answerArray.sort();
 
-                        (<div div className = "card" >
-                            <p className="question">{`Question: ${item.question}`}</p>
-                            <p className="answers">Answers:</p>
-                            <ul className="answer-list">
-
-                            </ul>
-                        </div>)
-    })
-}
+                    return (<div div className="card" >
+                        <p className="question">{item.question}</p>
+                        <ul className="answer-list">
+                            {answerArray.map((answer) => (
+                                <li className="answer-item" key={answer}>{answer}</li>
+                            ))}
+                        </ul>
+                    </div>
+                    );
+                })
+                }
             </div >
         )
     } else {
-    return <Spinner />
-}
+        return <Spinner />
+    }
 }

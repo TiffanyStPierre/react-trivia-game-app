@@ -15,9 +15,9 @@ export default function QuizSearch() {
     }
 
     return (
-        <>
-            <form onSubmit={handleSubmit} value={selection}>
-                <label>Choose a trivia category</label>
+        <div className="form-container">
+            <form onSubmit={handleSubmit} value={selection} className="form">
+                <label className="form-subtitle">Choose a trivia category</label>
                 <select onChange={handleChange}>
                     <option value="27">Animals</option>
                     <option value="26">Celebrities</option>
@@ -34,7 +34,7 @@ export default function QuizSearch() {
                 </select>
                 <button type="submit" className="btn-submit">Get Questions</button>
             </form>
-            <Link to="/">Reset Game</Link>
-        </>
+            <Link to="/" className="btn-reset">Reset Game</Link>
+        </div>
     )
 }
