@@ -111,6 +111,11 @@ select {
   padding: 0.25% 1%;
 }
 
+.trivia-page {
+  background-color: #F5F5F5;
+  color: #332D24;
+}
+
 /*  Cards  */
 
 .card-section {
@@ -119,8 +124,6 @@ select {
   align-items: center;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  background-color: #F5F5F5;
-  color: #332D24;
   padding: 2% 0;
 }
 
