@@ -79,7 +79,7 @@ html {
 }
 
 select {
-  border: 3px solid #663F46;
+  border: 2px solid #663F46;
   border-radius: 6px;
   font-size: 1.3rem;
   font-weight: 600;
@@ -148,7 +148,7 @@ select {
 .answer-item:hover {
   color: #663F46;
   font-weight: 700;
-  text-decoration: underline;
+  font-size: 1.2rem;
 }
 
 /** Spinner Component **/
