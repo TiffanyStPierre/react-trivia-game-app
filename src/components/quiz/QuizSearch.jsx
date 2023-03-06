@@ -4,7 +4,7 @@ import QuizContext from '../../context/QuizContext';
 
 export default function QuizSearch() {
     const [selection, setSelection] = useState('27');
-    const { getTrivia, items } = useContext(QuizContext);
+    const { getTrivia } = useContext(QuizContext);
 
     const handleChange = (e) => setSelection(e.target.value);
 
