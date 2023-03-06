@@ -8,7 +8,7 @@ html {
 /** Landing Page **/
 
 .landing-background {
-  background-color:#4D6A6D;
+  background-color: #4D6A6D;
   width: 100%;
   height: 100vh;
   display: flex;
@@ -34,7 +34,7 @@ html {
 }
 
 .landing-h1 {
-  font-family:'Josefin Sans', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   font-weight: bold;
   font-style: italic;
   font-size: 6rem;
@@ -57,6 +57,42 @@ html {
   text-align: center;
   width: 175px;
 }
+
+@media (max-width:1050px) {
+  .landing-h1 {
+    font-size: 3.5rem;
+  }
+
+  .landing-subtitle {
+    font-size: 1.2rem;
+    padding: 4% 0 6% 0;
+  }
+
+  .start-game {
+    font-size: 1.1rem;
+    width: 125px;
+    padding: 1%;
+  }
+}
+
+@media (max-width:600px) {
+  .landing-h1 {
+    font-size: 2.5rem;
+  }
+
+  .landing-subtitle {
+    font-size: 1rem;
+    padding: 4% 0 6% 0;
+  }
+
+  .start-game {
+    font-size: 1.1rem;
+    width: 125px;
+    padding: 1%;
+  }
+}
+
+/*  Quiz Page  */
 
 .form-container {
   background-color: #F5F5F5;
@@ -89,31 +125,41 @@ select {
   color: #332D24;
 }
 
-.btn-submit {
+.form-btns {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.btn-submit,
+.btn-reset {
   border-radius: 35px;
   background-color: #663F46;
   color: #ffffff;
   border: none;
-  font-size: 1.4rem;
-  padding: 2% 8%;
+  font-size: 1.2rem;
+  padding: 1.5% 1.5%;
   margin-bottom: 5%;
   cursor: pointer;
+  font-weight: 500;
+  width: 160px;
 }
 
 .btn-reset {
-  border-radius: 35px;
-  color: #663F46;
   background-color: #ffffff;
+  color: #663F46;
   border: 2px solid #663F46;
-  text-decoration: none;
-  font-size: 1.1rem;
   font-weight: 600;
-  padding: 0.25% 1%;
 }
 
 .trivia-page {
   background-color: #F5F5F5;
   color: #332D24;
+}
+
+.quiz-pg {
+  background-color: #F5F5F5;
 }
 
 /*  Cards  */
@@ -124,14 +170,16 @@ select {
   align-items: center;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  padding: 2% 0;
+  min-height: 46.5vh;
 }
 
 .card {
   text-align: center;
   margin: 2%;
   padding: 3%;
-  width: 25%;
+  width: 30%;
+  min-width: 250px;
+  min-height: 200px;
   background-color: #ffffff;
   box-shadow: 4px 4px 4px 4px #888888;
 }
@@ -140,6 +188,7 @@ select {
   margin-bottom: 6%;
   font-weight: 700;
   font-size: 1.2rem;
+  line-height: 1.2;
 }
 
 .answer-item {
@@ -152,6 +201,38 @@ select {
   color: #663F46;
   font-weight: 700;
   font-size: 1.2rem;
+}
+
+.answer-pair {
+  line-height: 1.5;
+  color: #663F46;
+  font-weight: 600;
+  font-size: 1.2rem;
+  padding-top: 5%;
+}
+
+@media (max-width:700px) {
+
+  .form-subtitle {
+    font-size: 1.3rem;
+  }
+
+  .btn-submit,
+  .btn-reset {
+    margin: 3%;
+    font-size: 1rem;
+    padding: 1% 1%;
+    width: 140px;
+  }
+
+  select {
+    font-size: 1.1rem;
+    padding: 0.5% 1%;
+  }
+
+  .card-section {
+    min-height: 65vh;
+  }
 }
 
 /** Spinner Component **/
@@ -174,8 +255,17 @@ select {
   text-align: center;
 }
 
+.header-link {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.header-link:hover {
+  color: #663F46;
+}
+
 .header-h1 {
-  font-family:'Josefin Sans', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   font-size: 5rem;
   padding: 2% 0 1% 0;
   font-weight: bold;
@@ -188,9 +278,74 @@ select {
   font-weight: 500;
 }
 
+@media (max-width:700px) {
+  .header-h1 {
+    font-size: 2rem;
+  }
+
+  .header-subtitle {
+    font-size: 1rem;
+  }
+}
+
 /**  Footer Component  **/
 
 .footer {
-  padding: 2% 0;
+  padding: 3% 0;
   line-height: 1.5;
+  width: 100%;
+  min-height: 2.2rem;
+  margin-top: 3%;
+}
+
+/**  Not Found  **/
+
+.not-found-pg {
+  width: 100%;
+  height: 100vh;
+}
+
+.not-found-body {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #332D24;
+  min-height: 56.5vh;
+}
+
+.not-found-msg {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin: 4% 0 2% 0;
+}
+
+.btn-back-to-home {
+  background-color: #663F46;
+  padding: 1%;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1.4rem;
+  font-weight: 500;
+  border-radius: 35px;
+  text-align: center;
+  width: 275px;
+  margin: 2% 0;
+}
+
+@media (max-width:700px) {
+  .not-found-msg {
+    font-size: 1.4rem;
+  }
+
+  .btn-back-to-home {
+    font-size: 1.2rem;
+    width: 200px;
+    margin: 2% 0;
+  }
+
+  .not-found-body {
+    min-height: 78vh;
+  }
 }

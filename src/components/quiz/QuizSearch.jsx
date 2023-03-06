@@ -1,11 +1,10 @@
-import { Link } from 'react-router-dom';
-import {useState, useContext} from 'react';
+import { useState, useContext } from 'react';
 import QuizContext from '../../context/QuizContext';
 
 
 export default function QuizSearch() {
     const [selection, setSelection] = useState('27');
-    const {getTrivia, items} = useContext(QuizContext);
+    const { getTrivia, items } = useContext(QuizContext);
 
     const handleChange = (e) => setSelection(e.target.value);
 
@@ -32,9 +31,11 @@ export default function QuizSearch() {
                     <option value="14">Television</option>
                     <option value="28">Vehicles</option>
                 </select>
-                <button type="submit" className="btn-submit">Get Questions</button>
+                <div className="form-btns">
+                    <button type="submit" className="btn-submit">Get Questions</button>
+                    <button type="button" className="btn-reset" onClick={() => window.location.reload()}>Reset Game</button>
+                </div>
             </form>
-            <Link to="/" className="btn-reset">Reset Game</Link>
         </div>
     )
 }

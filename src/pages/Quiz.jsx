@@ -5,11 +5,11 @@ import Footer from '../components/layout/Footer';
 
 export default function Quiz() {
     return (
-        <>
-            <Header />
+        <div className="quiz-pg">
+            < Header />
             <QuizSearch />
             <QuizCards />
             <Footer />
-        </>
+        </div >
     )
 }

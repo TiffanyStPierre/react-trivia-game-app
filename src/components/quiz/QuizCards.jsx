@@ -13,7 +13,7 @@ export default function QuizCards() {
     function renderSelectedAnswer(question, correctAnswer) {
         const answer = selectedAnswers[question];
         if (answer) {
-            return <p>{`Your answer is: ${answer}`}<br/>{`The correct answer is: ${correctAnswer}`}</p>;
+            return <p className="answer-pair">{`Your answer is: ${answer}`}<br/>{`The correct answer is: ${correctAnswer}`}</p>;
         } else {
             return null;
         }
