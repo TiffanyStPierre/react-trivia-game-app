@@ -162,6 +162,11 @@ select {
   background-color: #F5F5F5;
 }
 
+.current-score {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
 /*  Cards  */
 
 .card-section {
@@ -209,6 +214,13 @@ select {
   font-weight: 600;
   font-size: 1.2rem;
   padding-top: 5%;
+}
+
+.selected-answer {
+  color: #663F46;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 3%;
 }
 
 @media (max-width:700px) {

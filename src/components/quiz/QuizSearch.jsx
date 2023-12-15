@@ -4,13 +4,20 @@ import QuizContext from '../../context/QuizContext';
 
 export default function QuizSearch() {
     const [selection, setSelection] = useState('27');
-    const { getTrivia } = useContext(QuizContext);
+    const { getTrivia, score, totalQuestions, updateScore, updateTotalQuestions, setItems } = useContext(QuizContext);
 
     const handleChange = (e) => setSelection(e.target.value);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         getTrivia(selection);
+    }
+
+    const gameReset = () => {
+      updateScore(0);
+      updateTotalQuestions(0);
+      setItems([]);
+      window.location.reload();
     }
 
     return (
@@ -33,9 +40,10 @@ export default function QuizSearch() {
                 </select>
                 <div className="form-btns">
                     <button type="submit" className="btn-submit">Get Questions</button>
-                    <button type="button" className="btn-reset" onClick={() => window.location.reload()}>Reset Game</button>
+                    <button type="button" className="btn-reset" onClick={gameReset}>Reset Game</button>
                 </div>
             </form>
+            <p className="current-score">{`Current Score: ${score} correct out of ${totalQuestions} questions`}</p>
         </div>
     )
 }

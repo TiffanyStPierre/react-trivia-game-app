@@ -3,17 +3,35 @@ import Spinner from '../layout/Spinner';
 import QuizContext from '../../context/QuizContext';
 
 export default function QuizCards() {
-    const { items, loading } = useContext(QuizContext);
+    const { items, loading, updateScore, updateTotalQuestions } = useContext(QuizContext);
     const [selectedAnswers, setSelectedAnswers] = useState({});
 
-    function handleAnswerClick(question, answer) {
-        setSelectedAnswers((prevAnswers) => ({ ...prevAnswers, [question]: answer }));
+    function handleAnswerClick(question, answer, correctAnswer) {
+      if(!selectedAnswers[question]) {
+      if (answer === correctAnswer) {
+        updateScore((prevScore) => prevScore + 1);
+      }
+      updateTotalQuestions((prevTotalQuestions) => prevTotalQuestions + 1);
+      setSelectedAnswers((prevAnswers) => ({ ...prevAnswers, [question]: answer }));
+    }
     }
 
-    function renderSelectedAnswer(question, correctAnswer) {
+    function checkAnswer(answer, correctAnswer) {
+      let resultMessage = '';
+
+      if (answer === correctAnswer){
+        resultMessage = `Well Done! You've selected the correct answer: ${correctAnswer}`;
+      } else {
+        resultMessage = `Good guess, but ${answer} is not correct.`;
+      }
+      return resultMessage;
+    }
+
+    function renderSelectedAnswer(checkAnswer, question, correctAnswer) {
         const answer = selectedAnswers[question];
         if (answer) {
-            return <p className="answer-pair">{`Your answer is: ${answer}`}<br/>{`The correct answer is: ${correctAnswer}`}</p>;
+            const resultMessage = checkAnswer(answer, correctAnswer);
+            return <p className="answer-pair">{resultMessage}</p>;
         } else {
             return null;
         }
@@ -37,7 +55,7 @@ export default function QuizCards() {
                         answerArray.sort();
 
                         return (
-                            <div div className="card" key={item.question}>
+                            <div className="card" key={item.question}>
                                 <p className="question" dangerouslySetInnerHTML={{ __html: question }} />
                                 <ul className="answer-list">
                                     {answerArray.map((answer) => {
@@ -45,13 +63,13 @@ export default function QuizCards() {
                                         return (
                                             <li
                                                 key={answer}
-                                                className="answer-item"
-                                                onClick={() => handleAnswerClick(question, answer)}
+                                                className={`${selectedAnswers[question] === answer ? 'selected-answer' : 'answer-item'}`}
+                                                onClick={() => handleAnswerClick(question, answer, correctAnswer)}
                                                 dangerouslySetInnerHTML={{ __html: answer }} />
                                         )
                                     })}
                                 </ul>
-                                {renderSelectedAnswer(question, correctAnswer)}
+                                {renderSelectedAnswer(checkAnswer, question, correctAnswer)}
                             </div>
                         );
                     })}
