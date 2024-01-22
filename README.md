@@ -10,7 +10,7 @@ https://monumental-daifuku-819b7b.netlify.app/
 
 ## Screenshots
 
-!["Screenshot of sample game"] (https://github.com/TiffanyStPierre/react-trivia-game-app/blob/main/docs/trivia-app-screenshot.png?raw=true)
+!["Screenshot of sample game"](https://github.com/TiffanyStPierre/react-trivia-game-app/blob/main/docs/trivia-app-screenshot.png?raw=true)
 
 ## Technologies
 
