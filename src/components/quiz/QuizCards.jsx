@@ -22,7 +22,7 @@ export default function QuizCards() {
       if (answer === correctAnswer){
         resultMessage = `Well Done! You've selected the correct answer: ${correctAnswer}`;
       } else {
-        resultMessage = `Good guess, but ${answer} is not correct.`;
+        resultMessage = `Good guess, but ${answer} is not correct. The correct answer is ${correctAnswer}`;
       }
       return resultMessage;
     }

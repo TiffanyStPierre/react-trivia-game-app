@@ -6,7 +6,7 @@ import Footer from '../components/layout/Footer';
 export default function Quiz() {
     return (
         <div className="quiz-pg">
-            < Header />
+            <Header />
             <QuizSearch />
             <QuizCards />
             <Footer />
