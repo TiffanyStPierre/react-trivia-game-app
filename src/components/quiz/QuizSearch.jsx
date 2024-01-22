@@ -58,12 +58,13 @@ export default function QuizSearch() {
           </button>
         </div>
       </form>
-      <p className="current-score">{`Current Score:
+      <div className="current-score">
+      <p>{`Current Score:
         ${currentScorePercentage}%`}</p>
-      <br />
-      <p className="current-score">
+      <p>
         {`${score} out of ${totalQuestions} questions correct`}
       </p>
+      </div>
     </div>
   );
 }
