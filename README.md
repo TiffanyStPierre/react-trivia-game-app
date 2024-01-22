@@ -1,8 +1,10 @@
 # Mind Bender Trivia App (A React Project)
 
-A trivia game app that brings in random trivia questions from a third party API. Built with React, Javascript & CSS.
+Mind Bender is a trivia game that displays random trivia questions from the Open Trivia Database API. Built with React, Javascript & CSS.
 
-Users can select a category and then answer 4 trivia questions in that category. When the user selects their response, the trivia card will show both the user response and the correct response. Additional trivia questions may be requested from any category.
+Players can select a category and then answer 4 trivia questions in that category. When the player selects their answer, the trivia card will show both the selected and correct answers. Additional trivia questions may be requested from any category and the score continues to be tracked until the player resets the game.
+
+
 
 ## Installation & Setup Instructions
 
